@@ -1,0 +1,39 @@
+<%- include('../layouts/header') %>
+
+<!-- registration form -->
+
+<div class="login-page">
+  <div class="form" >
+  <h1 class="head">Add New User</h1> 
+
+  <form action="" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <br><br>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br><br>
+    <input type="text" name="mno" placeholder="Enter Mobile" required>
+    <br><br>
+    <input type="file" name="image" required>
+    <br><br>
+    <input type="submit"  value="Add User" style="background-color: skyblue;">  
+    
+    </form>
+
+
+<!-- after register succesfully message color -->
+<%
+
+  if(typeof message !== 'undefined'){
+   %>
+    <p style="color: red;"><%= message %></p>
+   <%
+}
+
+%>
+
+<a href="/admin/dashboard">Go Back</a>
+
+</div>
+</div>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,51 @@
+<%- include('../layouts/header') %>
+
+<style>
+    .centered-content {
+        text-align: center; 
+    }
+
+    .centered-content img {
+        display: block;
+        margin: 0 auto; 
+    }
+</style>
+
+<div class="container centered-content">
+    <h3>Welcome, <%= user.name %></h3>
+    <img src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>">
+
+    <br>
+
+    <table class="table user-info-table">
+        <tr>
+            
+            
+            
+            
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= user.email %></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><%= user.mobile %></td>
+        </tr>
+        <tr>
+            <td>Verified</td>
+            <td>
+                <% if(user.is_verified == 1) { %>
+                    <p>True</p>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+
+    <a href="/edit?id=<%= user._id %>" class="btn btn-primary">Edit</a>
+    <br><br>
+    <button class="btn btn-primary logout-button"><a href="/logout" style="text-decoration: none; color: inherit;">Logout</a></button>
+</div>
+
+
+<%- include('../layouts/footer') %>

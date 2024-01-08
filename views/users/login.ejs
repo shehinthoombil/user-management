@@ -1,0 +1,64 @@
+<%- include('../layouts/header') %>
+
+<div class="login-page">
+    <div class="form">
+
+<h1 class="head">Login</h1>
+
+<% if (typeof message !== 'undefined') { %>
+    <div class="alert alert-primary text-center" id="errorDisplay">
+      <%= message %>
+    </div>
+  <% } %>  
+
+<form action="/login" method="post" id="myForm" >
+    <!-- <div class="input-container"> -->
+    <input type="email" name="email" placeholder="Enter email" id="email">
+    <p id="email-error" class="error-message"></p>
+    
+
+    <div class="input-container">
+        <input type="password" name="password" required placeholder="Enter password" id="password">
+        <p id="password-error" class="error-message"></p>
+    </div>    
+    <br>
+    <button type="submit"  value="Login">Login</button>
+    <p class="message">Not registered? <a href="/register">Registeration</a></p>
+
+    
+</form>
+<a href="/forget">Forget Password</a>
+<br>
+<a href="/verification">Verification</a>
+ </div>
+
+</div>
+<script>
+    const form = document.getElementById('myForm');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const errorDisplay = document.getElementById('errorDisplay'); 
+  
+    form.addEventListener('submit', (event) => {
+        let hasError = false;
+  
+        if (!email.value || !password.value) {
+            hasError = true;
+            errorDisplay.innerHTML = "All fields are required";
+        } else if (!email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            hasError = true;
+            errorDisplay.innerHTML = "Please enter a valid email.";
+        } else if (password.value.length < 5) {
+            hasError = true;
+            errorDisplay.innerHTML = "Password must contain atleast 6 characters";
+        }
+  
+        if (hasError) {
+            event.preventDefault();
+        }
+  
+    });
+    </script>
+
+
+<%- include('../layouts/footer') %>

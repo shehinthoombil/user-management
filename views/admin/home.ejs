@@ -1,0 +1,52 @@
+<%- include("../layouts/header") %>
+
+
+
+    <style>
+        .centered-content {
+            text-align: center;
+        }
+
+        .centered-content img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+    <div class="container centered-content">
+
+        <h3>Welcome, <%= admin.name %>
+        </h3>
+        <img src="/userImages/<%= admin.image %>" width="100px" height="100px" alt="<%= admin.image %>">
+
+        <br>
+
+        <table class="table user-info-table">
+            <tr>
+
+
+
+
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <%= admin.email %>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>
+                    <%= admin.mobile %>
+                </td>
+            </tr>
+
+        </table>
+
+        <a href="/admin/dashboard" class="btn btn-primary btn-block">
+            <h4>Dashboard</h4>
+        </a>
+        <br><br>
+        <a href="/admin/logout" class="btn btn-danger btn-block">Logout</a>
+    </div>
+    <%- include("../layouts/footer") %>

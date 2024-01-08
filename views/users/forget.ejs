@@ -1,0 +1,29 @@
+<%- include('../layouts/header') %>
+
+<div class="login-page">
+    <div class="form">
+
+
+<h1>Forget</h1>
+
+<%
+    if(typeof message !== 'undefined'){
+        %>
+            <h4><%= message %></h4>
+        <%
+    }
+
+%>    
+
+<form action="/forget" method="post">
+
+    <input type="email" name="email" placeholder="Enter email">
+    <br><br>
+    <input type="submit" value="Send Reset Link" style="background-color: skyblue;"> 
+
+</form>
+
+</div>
+</div>
+
+<%- include('../layouts/footer') %> 

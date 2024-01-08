@@ -1,0 +1,44 @@
+<%- include('../layouts/header') %>
+
+
+
+<div class="container mt-5"> <!-- Bootstrap container class for centering content -->
+    <div class="login-page">
+      <div class="form">
+  
+        <h1 class="mb-4">Edit User</h1>
+  
+        <form action="" method="POST" class="login-form">
+  
+          <div class="mb-3">
+            <input type="text" name="name" class="form-control" placeholder="Enter Name" value="<%= user.name %>" required>
+          </div>
+  
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="Enter Email" value="<%= user.email %>" required>
+          </div>
+  
+          <div class="mb-3">
+            <input type="text" name="mno" class="form-control" placeholder="Enter Mobile" value="<%= user.mobile %>" required>
+          </div>
+          <label> Verified</label>
+    <input type="radio" name="verify" value="1" <% if(user.is_verified == 1){ %> checked <% } %> >
+    <label> Un-verified</label>
+    <input type="radio" name="verify" value="0" <% if(user.is_verified == 0){ %> checked <% } %> >
+
+
+
+  
+          <input type="hidden" name="id" value="<%= user._id %>">
+  
+          <button type="submit" style="background-color: royalblue;"">Update User</button>
+  
+        </form>
+  
+        <a href="/admin/" class="mt-3 btn btn-secondary">Go to Dashboard</a>
+  
+      </div>
+    </div>
+  </div>
+
+<%- include('../layouts/footer') %>
